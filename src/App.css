@@ -1,0 +1,401 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fff0f5;
+}
+
+.birthday-app {
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #fff0f5, #ffe1eb, #fff5f7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 70px 20px 35px;
+}
+
+.content {
+  width: 100%;
+  max-width: 850px;
+  z-index: 2;
+  text-align: center;
+}
+
+.screen {
+  min-height: 570px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  animation: appear 0.7s ease;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1, h2, h3 {
+  color: #a52d59;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: clamp(38px, 7vw, 65px);
+  line-height: 1.35;
+}
+
+h1 span {
+  color: #e84378;
+}
+
+h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: clamp(27px, 5vw, 40px);
+}
+
+.description {
+  max-width: 500px;
+  color: #805466;
+  line-height: 1.9;
+  font-size: 15px;
+}
+
+.small-heading {
+  color: #c15b81;
+  letter-spacing: 3px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.emoji-big {
+  font-size: 75px;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  50% { transform: scale(1.13); }
+}
+
+.cute-emoji {
+  font-size: 45px;
+}
+
+.primary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  padding: 14px 27px;
+  border: none;
+  border-radius: 40px;
+  background: linear-gradient(135deg, #ed5182, #d92d67);
+  color: white;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 7px 20px #e8437840;
+  transition: 0.3s;
+}
+
+.primary-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px #e8437860;
+}
+
+.music-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #f3a7c0;
+  color: #b33463;
+  background: #ffffffaa;
+  padding: 10px 15px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+/* Floating hearts */
+
+.floating-hearts span {
+  position: absolute;
+  bottom: -50px;
+  left: calc(var(--i) * 7%);
+  color: #ef9db9;
+  opacity: 0.35;
+  animation: floatUp 10s linear infinite;
+  animation-delay: calc(var(--i) * -0.7s);
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+  }
+}
+
+/* Balloons */
+
+.balloons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 35px 0;
+}
+
+.balloon {
+  background: none;
+  border: none;
+  font-size: 75px;
+  cursor: pointer;
+  transition: 0.3s;
+  animation: balloonFloat 2s ease-in-out infinite alternate;
+}
+
+.balloon:nth-child(even) {
+  animation-delay: 0.5s;
+}
+
+.balloon:hover {
+  transform: scale(1.2);
+}
+
+.balloon.popped {
+  animation: pop 0.35s forwards;
+  pointer-events: none;
+}
+
+@keyframes balloonFloat {
+  to { transform: translateY(-15px); }
+}
+
+@keyframes pop {
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.message {
+  color: #b33463;
+  font-weight: 600;
+}
+
+/* Cake */
+
+.cake {
+  position: relative;
+  width: 190px;
+  height: 180px;
+  margin: 35px auto 15px;
+}
+
+.cake-bottom {
+  position: absolute;
+  width: 180px;
+  height: 90px;
+  background: #f5a5b9;
+  border-radius: 12px 12px 35px 35px;
+  bottom: 0;
+  left: 5px;
+  box-shadow: inset 0 -12px #e77d9c;
+}
+
+.cake-top {
+  position: absolute;
+  width: 180px;
+  height: 45px;
+  border-radius: 50%;
+  background: #fff8ed;
+  border: 5px solid #f5b5c7;
+  bottom: 68px;
+  left: 5px;
+  z-index: 1;
+}
+
+.candle {
+  position: absolute;
+  height: 55px;
+  width: 13px;
+  background: repeating-linear-gradient(
+    45deg, white, white 5px, #f16b92 5px, #f16b92 10px
+  );
+  left: 88px;
+  bottom: 108px;
+  z-index: 2;
+}
+
+.flame {
+  position: absolute;
+  left: 85px;
+  bottom: 160px;
+  font-size: 30px;
+  z-index: 3;
+  animation: heartbeat 0.8s infinite;
+}
+
+/* Bouquet */
+
+.bouquet {
+  font-size: 145px;
+  margin: 25px;
+  animation: appear 1s ease;
+}
+
+/* Memories */
+
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px;
+  margin: 20px 0;
+}
+
+.polaroid {
+  width: 180px;
+  padding: 10px 10px 15px;
+  background: white;
+  box-shadow: 0 8px 22px #8d40532c;
+  transform: rotate(-3deg);
+  transition: 0.3s;
+}
+
+.polaroid:nth-child(2) {
+  transform: rotate(3deg);
+}
+
+.polaroid:nth-child(3) {
+  transform: rotate(-2deg);
+}
+
+.polaroid:hover {
+  transform: rotate(0) scale(1.07);
+  z-index: 3;
+}
+
+.polaroid img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.polaroid p {
+  font-family: 'Pacifico', cursive;
+  color: #b33463;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+/* Letter */
+
+.envelope {
+  border: none;
+  background: transparent;
+  font-size: 130px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: heartbeat 2s infinite;
+}
+
+.envelope span {
+  font-family: 'Poppins';
+  font-size: 14px;
+  color: #b33463;
+}
+
+.letter {
+  background: #fffdf2;
+  padding: 30px;
+  width: min(100%, 480px);
+  color: #75505a;
+  text-align: left;
+  line-height: 2;
+  border: 1px solid #f1d7a5;
+  box-shadow: 0 10px 30px #b3346320;
+  animation: appear 0.8s ease;
+}
+
+.letter h3 {
+  font-family: 'Pacifico', cursive;
+  margin-bottom: 15px;
+}
+
+.letter p {
+  margin-bottom: 12px;
+}
+
+/* Final */
+
+.final-gift {
+  position: relative;
+  font-size: 130px;
+  animation: heartbeat 1.5s infinite;
+}
+
+.final-gift span {
+  position: absolute;
+  font-size: 40px;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.final-hearts {
+  font-size: 35px;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  .screen {
+    min-height: 500px;
+  }
+
+  .balloons {
+    gap: 15px;
+  }
+
+  .balloon {
+    font-size: 55px;
+  }
+
+  .photos {
+    gap: 12px;
+  }
+
+  .polaroid {
+    width: 135px;
+  }
+
+  .polaroid img {
+    height: 145px;
+  }
+
+  .letter {
+    padding: 20px;
+  }
+}
